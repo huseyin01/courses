@@ -1,0 +1,189 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\csgray\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Notes from Udemy Course - Deployment ML models \
+\
+# in your GitHub account, fork below repository:\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://github.com/ChrisSamiullah/deploying-machine-learning-models/commits/master"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://github.com/ChrisSamiullah/deploying-machine-learning-models/commits/master}}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
+# \'93commits\'94 in the repo can be used to follow the steps of deploying.\
+\
+# clone the repo with \'93git clone <url>\
+>>> git clone https://github.com/huseyin01/deploying-machine-learning-models.git\
+\
+# go to the repo (deploying-machine-learning-models)\
+>>> cd deploying-machine-learning-models\
+\
+# in order checkout commits use \'93git checkout <commit reference> 1st blue icon\
+>>> git checkout e000631baa42203b3c02c545a24876b828080dbb\
+\
+# Open a pull request\
+# set the origin repo:\
+>>> git remote set-url origin https://github.com/huseyin01/deploying-machine-learning-models.git\
+\
+# crate a branch \'97> git checkout -b <branch name>\
+>>> git checkout -b test_branch\
+\
+# make an empty commit \'97> \
+>>> git commit \'97allow-empty -m \'93opening pull request\'94\
+\
+# push the commit\
+\'97> git push origin test_branch\
+\
+# go to the repo page and hit the \'93compare pull request\'94\
+# choose the base repository\
+# hit the \'93create pull request\'94\
+\
+## 5.4. Operating Systems Differences\
+# In order to see the current environment variables:\
+>>> $ printenv\
+\
+# In order to see a specific path name: echo $<variable name>\
+ >>> $ echo $PATH\
+\
+# setting temporary environment variable:\
+# export <current variable name> = <new value>:$<current variable name>\
+>>> export PATH=/Users/hy/Documents/apache-maven-3.5.0/bin:$PATH\
+\
+# setting a permanent variable:\
+>>> 
+\f2\fs22 \cf3 \CocoaLigature0 $ nano .bash_profile\
+\
+# go to the end and add the path with above \'93export\'94 command and save with Ctrl+y\
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+## 5.5 Virtual Environment\
+# go to python interpreter\
+>>> python\
+>>> import  numpy  # numpy var mi diye cek ediyorum\
+\
+# diyelim ki bulamad\uc0\u305 m ve numpy\'92i y\'fcklemekte icin \'93python interpreter\'92dan cikiyorum.\
+>>> quit() # \'93ctrl+D\'94 de kullanilabilir.\
+\
+>>>$ pip install numpy # this installs numpy to the whole system and this is not what I want.\
+\
+# bunun yerine bir virtual environment olu\uc0\u351 turarak, tum sistemden bagimsiz, uzerinde calistigim proje \'f6zelinde bir environment olu\u351 turmak daha do\u287 ru.\
+>>>$ python -m venv demo_env   # saniyeler icinde yeni environment olu\uc0\u351 turulmu\u351  olacak\
+>>>$ ls # windows icin \'93dir\'94 - bu komutla neler oldugunu kontrol edebiliriz\
+\
+# olusturdugumuz environment\'92i aktif hale getirelim\
+>>>
+\f2\fs22 \cf3 \CocoaLigature0 $ . demo_env/bin/activate # \'93.\'94 Yerine \'93source\'94 da yazilabilir.\
+# not: burada \'93demo_env\'94 ya da \'93bin\'94 icin girip activate etmeye calisildiginda yeni olu\uc0\u351 turdu\u287 umuzu environment\'92a ge\'e7miyor. hangi folder\'92in icinde olu\u351 turduysak orada iken activate edilmesi gerekiyor.\
+\
+# asagidaki komutlarla python version kontrol edilebilir:\
+>>>$ python -V  # ya da \'93python \'97version\'94\
+\
+# virtual environment\'92daki tum kurulu paketleri g\'f6runtulemekmek icin.\
+>>>$ pip list\
+\
+# yeni olusturdugumuz environment\'92a numpy yok ve y\'fcklemekte istiyorum\
+>>>$ pip install numpy # \'93numpy==1.16.0\'94 ile version ozellestirilebilir.\
+>>>$ python\
+>>> import numpy\
+>>> numpy.version.version #ya da \'93print(numpy.__version__)\'94\
+#komutu ile numpy version kontrol edilebilir. Bu komut import etikten sonra calisir.\
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+# virtual environient\'92dan cikmak \'e7ok basit\
+>>>$ deactivate\
+\
+# in order to create \'93requirements\'94 file. Burada yapilaacak olan islem, otomatik olu\uc0\u351 turma, yani program isler haldeyken bu komut ile olu\u351 turulacak dosya, halihazirdaki tum paketleri, versiyonlar\u305  ile birlikte bu dosyaya aktaracak, ilave birey yazmasak da olur. Elbette daha sonra degisiklik yap\u305 labilir.\
+>>> 
+\f2\fs22 \cf3 \CocoaLigature0 $ pip freeze > requirements.txt\
+\
+#asagidaki komut ile de daha once olu\uc0\u351 turulmu\u351  ya da de\u287 i\u351 tirilmi\u351  bir dosya daki tum paketlerin (halihazirda yok ise) indirilmesini ya da versiyonun de\u287 i\u351 tirilmesini sa\u287 l\u305 yor.\
+
+\f0\fs24 \cf0 \CocoaLigature1 >>> 
+\f2\fs22 \cf3 \CocoaLigature0 pip install -r requirements.txt\
+\
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+***** INITIAL SETUP *******\
+1. Terminal\'92den calisacagin ana folder\'92a git.\
+2. Yeni bir virtual environment kur. (
+\f2\fs22 \cf3 \CocoaLigature0 $ python -m venv dev_env
+\f0\fs24 \cf0 \CocoaLigature1 \
+3. Yeni kurdu\uc0\u287 un environment\'92i aktive et (
+\f2\fs22 \cf3 \CocoaLigature0 $ . dev_env/bin/activate
+\f0\fs24 \cf0 \CocoaLigature1 )\
+4. Git checkout commit - \'936.2 initial setup\'92a it\'94 \
+4. Requirements\'92lari yukle (
+\f2\fs22 \cf3 \CocoaLigature0 $ pip install -r requirements.txt)\
+# onemli bir nokta, buradaki requirements, \'93packages\'94 klas\'f6r\'fc alt\uc0\u305 nda yer alan \'93requirements\'94, bir \'fcst dizindeki requirements degil.\
+
+\f0\fs24 \cf0 \CocoaLigature1 5. git checkout commit \'936.3 training model\'94 \
+6. 6.4\'92un bas\uc0\u305 nda, PYTHONPATH\'92in asagidaki sekilde oldugundan emin ol:\
+\pard\pardeftab720\partightenfactor0
+
+\fs22 \cf0 \'85.\\ deploying-machine-learning-models \\packages\\regression_model\
+# e\uc0\u287 er degil ise activate dosyas\u305  i\'e7ersine girerek gunecelle.\
+\
+
+\fs24 7. Datayi tekrar train et\
+>>> $ python packages/regression_model/regression_model/train_pipeline.py\
+\
+8. Asagidaki komut ile test ediliyor;\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf3 \CocoaLigature0 >>> $ pytest packages/regression_model/tests -W ignore::DeprecationWarning\
+\
+9. 6.6\'92da tekrar bir train ve test denemesi yap\uc0\u305 ld\u305  (sorunsuz calisti)\
+>>> $ python packages/regression_model/regression_model/train_pipeline.py \
+>>> $ pytest packages/regression_model/tests -W ignore::DeprecationWarning\
+\
+10. 6.7 Versioning\
+0.1.0 \'97> ilk hane: major / ikinci hane: minor / ucuncu hane: macro (imi\uc0\u351 ) 
+\f0\fs24 \cf0 \CocoaLigature1  \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # VERSION diye bir dosya icersine girilmi\uc0\u351  bu bilgi, \'93init.py\'94 i\'e7ersine de bu dosyay\u305  okuyacak bir kod yazilmis. Yani __version__ sorgulamas\u305  yapildiginda otomatik olarak bu dosya a\'e7\u305 lacak yani iceregi g\'f6sterilecek. \
+\
+# yeniden \'93train\'94 edildi ve iki tane log bilgisi alindi (\'f6nceki b\'f6l\'fcmlerden farkl\uc0\u305  olarak).\
+\
+# logging ayraca uzerinde durulmas\uc0\u305  gereken bir konu, sonradan bak\u305 lmal\u305 .\
+\
+11. 6.8 \'93Building Packages\'94da requirements\'92lar tekrar y\'fcklendi.\
+Birincisi neden iki tane farkl\uc0\u305  requirements dosyas\u305  var. Gercekte de Boyle olur mu yoksa adim adim gitti\u287 imiz icin mi ihtiyac has\u305 l oldu?\
+\
+# bu arada setup ve requirements dosyalar\uc0\u305 n\u305 n icerikleri de ayraca incelenmesi gereken dosyalar.\
+\
+12. setup.py calistirildi\
+>>> 
+\f2\fs22 \cf3 \CocoaLigature0 $ python packages/regression_model/setup.py sdist bdist_wheel\
+# sdist \'97> source distribution\
+# bidet \'97> build distribution (ne anlama geliyor bilemedim)\
+\
+13. Local olarak install ettik paketi (hangi amacla bilmem)\
+>>> $ pip install -e packages/regression_model/\
+# now ready for distribution imis.\
+\
+14. 7.2 - Creating API Skeleton\
+# once ml_api alt\uc0\u305 ndaki requirements\'92a yer alan path asagidaki ile de\u287 i\u351 tirildi:\
+# \'94/Users/hy/Downloads/dep_course/deploying-machine-learning-models/packages/regression_model" \
+# sonrasynda mp_api icindeki requirements calistirildi:\
+>>> $ pip install packages/ml_api/requirements.txt \
+\
+# flask ile ilgili dosyalara g\'f6z at\uc0\u305 ld\u305  \
+# bir variablenin setup icin: ml_api navigate edildi ve sonras\uc0\u305 nda asagidaki komut kullan\u305 ld\u305 :\
+>>> $ set FLASK_APP=run.py\
+>>> $ python run.py # bu komutla da API run edildi\
+\
+Asagidaki adres girildi\uc0\u287 inde de (Crome) local\'92da sonucu goruyoruz:\
+>>> http://127.0.0.1:5000/health
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+ \
+}
